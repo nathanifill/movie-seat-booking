@@ -1,0 +1,292 @@
+/* ideas for fonts http://typ.io/fonts/limelight_regular */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=EB+Garamond:wght@500&family=Limelight&display=swap');
+
+:root {
+  --bg-color: black;
+  --seat-color: linear-gradient(
+    red,
+    darkred 40%,
+    black 79%,
+    red 80%,
+    darkred 90%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  color: white;
+  background-color: var(--bg-color);
+  display: flex;
+  font-family: 'EB Garamond', serif;
+  font-size: 10px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Limelight', cursive;
+  font-size: 4.8em;
+  margin: 0.5em 0;
+}
+h2 {
+  font-size: 2.4em;
+}
+h2,
+h3,
+h4,
+h5,
+h6,
+.row-label,
+.seat {
+  font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main {
+  align-items: center;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  padding: 1em;
+  font-family: 'Dosis', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.btn {
+  background-color: darkred;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Eb Garamond', sans-serif;
+  font-size: 2em;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: firebrick;
+}
+
+.container {
+  min-width: 360px;
+  perspective: 750px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.seat {
+  background-image: var(--seat-color);
+  border-radius: 5px 5px 2px 2px;
+  color: transparent;
+  font-size: 1.4em;
+  font-weight: 900;
+  height: 30px;
+  margin: 5px;
+  width: 22px;
+}
+
+.row .seat:not(.occupied):not(.selected):hover {
+  background-image: linear-gradient(
+    pink,
+    red 40%,
+    darkred 79%,
+    pink 80%,
+    red 90%
+  );
+  background-color: pink;
+  color: white;
+}
+
+.row .seat:not(.occupied):hover {
+  transform: scale(1.1);
+}
+
+.seat.selected {
+  background-image: linear-gradient(
+    lightgreen,
+    green 40%,
+    darkgreen 79%,
+    lightgreen 80%,
+    green 90%
+  );
+  transform: none;
+}
+
+.seat.occupied {
+  background-image: linear-gradient(
+    lightgrey,
+    grey 40%,
+    darkslategrey 79%,
+    lightgrey 80%,
+    grey 90%
+  );
+  transform: none;
+}
+
+.seat.occupied div {
+  background-image: url('img/popcorn.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: auto;
+}
+
+.row .seat:nth-of-type(4) {
+  margin-right: 30px;
+}
+
+.row .seat:nth-last-of-type(4) {
+  margin-left: 30px;
+}
+
+.text {
+  color: ghostwhite;
+  font-size: 2.4em;
+  font-family: 'Dosis', sans-serif;
+}
+
+#screen {
+  background-color: ghostwhite;
+  background-image: url('https://media.giphy.com/media/3o6Ztl7RvfwCp9mqhW/giphy.gif');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: none;
+  box-shadow: 0px 0px 30px 15px darkslategrey;
+  height: 350px;
+  margin-top: -100px;
+  transform: rotateZ(180deg) rotateX(-89deg);
+  width: 100%;
+}
+
+main section {
+  margin-top: 1em;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#seating {
+  transform: rotateX(-15deg);
+}
+
+#seating-key {
+  align-items: center;
+  background-color: darkslategrey;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.8em;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+#seating-key .seat {
+  margin: 0 20px;
+}
+
+#seating-key .seat:first-child {
+  margin-left: 0px;
+}
+
+#seating-key .seat:hover,
+#seating-key .seat:active {
+  background-color: var(--seat-color);
+  transform: none;
+}
+
+#total {
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 1024px) {
+  body,
+  main {
+    overflow-x: hidden;
+    font-size: 8px;
+    height: 100%;
+  }
+
+  main {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  h1,
+  h2 {
+    margin: 0.25em 0;
+    max-width: 90%;
+  }
+
+  .btn {
+    margin-bottom: 1em;
+  }
+
+  .container {
+    perspective: 0px;
+    max-width: 90%;
+  }
+
+  .row .seat {
+    margin: 1px;
+  }
+
+  #screen {
+    display: none;
+  }
+
+  #seating {
+    margin-top: 1em;
+    transform: none;
+  }
+
+  #seating-key {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .seat {
+    height: 26px;
+    margin: 4px;
+    width: 20px;
+  }
+
+  .row .seat:nth-of-type(4) {
+    margin-right: 10px;
+  }
+
+  .row .seat:nth-last-of-type(4) {
+    margin-left: 10px;
+  }
+}
