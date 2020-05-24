@@ -61,7 +61,9 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-color: white;
   border-radius: 10px;
+  color: black;
   padding: 1em;
   font-family: 'Dosis', sans-serif;
   font-size: 18px;
